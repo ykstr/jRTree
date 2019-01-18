@@ -1,4 +1,4 @@
-package de.ykstr.jrtree.models;
+package de.ykstr.jrtree.geometry;
 
 public class Point {
 
@@ -19,6 +19,7 @@ public class Point {
     }
 
     public static Point move(Point p, double xDistance, double yDistance){
+        if(xDistance == 0 && yDistance == 0) return p;
         return new Point(p.x+xDistance, p.y+yDistance);
     }
 
@@ -32,5 +33,18 @@ public class Point {
 
     public double distance(Point other){
         return Math.sqrt(Math.pow(xDistance(other), 2)+Math.pow(yDistance(other), 2));
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj instanceof Point){
+            Point p = (Point)obj;
+            return p.x == x && p.y == y;
+        }else return false;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("(%.2f, %.2f)", x, y);
     }
 }

@@ -1,4 +1,4 @@
-package de.ykstr.jrtree.models;
+package de.ykstr.jrtree.geometry;
 
 @FunctionalInterface
 public interface MinimalBoundingBox {
